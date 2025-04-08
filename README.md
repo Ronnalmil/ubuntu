@@ -1,0 +1,2 @@
+# ubuntu
+comandos utilizados
