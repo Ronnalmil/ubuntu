@@ -13,12 +13,13 @@ resultado: rwx-rwx-r--
 ~$ sudo chmod 774 copiaseguridad.sh
 
 # el script copia
-#script
 #!/bin/bash 
- fecha='date+%d-%m-%Y' 
- if test -d $HOME/copia then
+ fecha=$(date +%d-%m-%Y) 
+ if test -d $HOME/copia
+ then
  echo "El directorio copia ya existe"
-        if test -f $HOME/copia/backup_$fecha.tar.gz then
+        if test -f $HOME/copia/backup_$fecha.tar.gz
+        then
         echo "La copia ya sido creada"
         else
         tar -czf $HOME/copia/backup_$fecha.tar.gz *
@@ -27,6 +28,8 @@ resultado: rwx-rwx-r--
   mkdir $HOME/copia
   tar -czf $HOME/copia/backup_$fecha.tar.gz *
 fi
+
+
 
 
 
