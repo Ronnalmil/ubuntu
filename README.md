@@ -33,6 +33,12 @@ fi
 #LYNIS
 AUDITORIA-ARCHIVO(ruta absoluta)- Busca cron
 examen@examen-VirtualBox:~$ lynis audit system > /home/examen/prueba6.txt | grep cron
+# 
+-n enumera
+-i ignora
+-v no muestra los NO 
+
+examen@examen-VirtualBox:~$ sudo cat prueba6.txt | grep -n -i check | grep -e FOUND -e OK -e ENCONTRADO  | grep -v NO
 
 
 
