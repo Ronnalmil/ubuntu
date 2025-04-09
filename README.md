@@ -29,7 +29,8 @@ resultado: rwx-rwx-r--
   tar -czf $HOME/copia/backup_$fecha.tar.gz *
 fi
 
-#OTRA ACTIVIDAD
+
+#OTRA ACTIVIDAD 09/04/2025
 #LYNIS
 AUDITORIA-ARCHIVO(ruta absoluta)- Busca cron
 examen@examen-VirtualBox:~$ lynis audit system > /home/examen/prueba6.txt | grep cron
@@ -39,6 +40,20 @@ examen@examen-VirtualBox:~$ lynis audit system > /home/examen/prueba6.txt | grep
 -v no muestra los NO 
 
 examen@examen-VirtualBox:~$ sudo cat prueba6.txt | grep -n -i check | grep -e FOUND -e OK -e ENCONTRADO  | grep -v NO
+
+#OTRA MANERA
+-m 5 muestra los 5 primeras filas
+-C muestra las columnas
+-i ignora
+examen@examen-VirtualBox:~$ cat /home/examen/prueba6.txt |grep -m 5 -C 2 -i sugerencia
+
+
+#OTRA MANERA
+cut muestra lo ultimo  y luego lo primero 
+grep muestra ipv4
+
+examen@examen-VirtualBox:~$ cat /home/examen/prueba6.txt |grep ipv4|cut -d " " -f 2,6
+
 
 
 
