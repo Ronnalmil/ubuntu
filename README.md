@@ -29,6 +29,11 @@ resultado: rwx-rwx-r--
   tar -czf $HOME/copia/backup_$fecha.tar.gz *
 fi
 
+#OTRA ACTIVIDAD
+#LYNIS
+AUDITORIA-ARCHIVO(ruta absoluta)- Busca cron
+examen@examen-VirtualBox:~$ lynis audit system > /home/examen/prueba6.txt | grep cron
+
 
 
 
