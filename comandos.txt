@@ -1,0 +1,70 @@
+# comandos utilizados en ubuntu lista de las copias de seguridad volver a practicar en casa
+ 1  tree /home
+    2  adduser man
+    3  help adduser 
+    4  adduser man
+    5  man
+    6  cd man
+    7  cd men
+    8  cd man
+    9  sudo man
+   10  help
+   11  read man
+   12  read help
+   13  man grep
+   14  man lynis
+   15  tree /home
+   16  cat /home/examen/pruebas6.txt |grep ipv4|cut -d " " -f 2,6
+   17  cat /home/examen/prueba6.txt |grep ipv4|cut -d " " -f 2,6
+   18  cat /home/examen/prueba6.txt |grep -m 5 -C 2 -i sugerencia
+   19  cat /home/examen/prueba6.txt |grep -m 5 -C 1 -i sugerencia
+   20  cat /home/examen/prueba6.txt |grep -m 10 -C 2 -i sugerencia
+   21  tree /home
+   22  sudo apt install tree
+   23  tree /home
+   24  rm -r /home/examen/snap/snapd-desktop-integration
+   25  tree /home
+   26  lynis man
+   27  show
+   28  apt-get install -y lynis
+   29  sudo apt-get install -y lynis
+   30  lynis audit system
+   31  lynis audit sytem | grep firefox >prueba.txt
+   32  tree /home
+   33  cat /home/examen/prueba.txt
+   34  ll /home/examen/prueba.txt
+   35  cat /home/examen/prueba.txt
+   36  lynis audit sytem >prueba2.txt  | grep firefox
+   37  tree /home
+   38  cat /home/examen/prueba2.txt
+   39  lynis audit sytem >prueba3.txt 
+   40  cat /home/examen/prueba3.txt
+   41  rm -r /home/examen/prueba.txt
+   42  rm -r /home/examen/prueba2.txt
+   43  rm -r /home/examen/prueba3.txt
+   44  tree /home
+   45  grep suggestion /var/log/lynis-report.dat | cut -d\|-f2
+   46  sudo grep suggestion /var/log/lynis-report.dat | cut -d\|-f2
+   47  grep suggestion /var/log/lynis-report2.dat | cut -d\|-f2
+   48  lynis audit sytem >prueba1.txt 
+   49  tree /home
+   50  cat prueba1.txt
+   51  nano prueba1.txt
+   52  lynis audit system > /home/examen/prueba5.txt 
+   53  tree /home 
+   54  cat /home/examen/prueba5.txt
+   55  nano  /home/examen/prueba5.txt
+   56  nano  /home/examen/prueba5.txt | grep cron
+   57  tree /home
+   58  lynis audit system > /home/examen/prueba6.txt | grep cron
+   59  sudo cat prueba6.txt
+   60  lynis audit system > /home/examen/prueba6.txt | grep
+   61  cat /home/examen/prueba6.txt | grep cron
+   62  sudo nano /home/examen/prueba6.txt
+   63  cat /var/log/lynis-report.dat
+   64  sudo cat /var/log/lynis-report.dat
+   65  sudo cat prueba6.txt | grep -n -i check | grep -e FOUND -e OK -e ENCONTRADO  | grep -v NO
+   66  show history > historial.txt
+   67  show history
+   68  history
+   69  history> historial.txt
