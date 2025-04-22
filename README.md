@@ -55,7 +55,26 @@ grep muestra ipv4
 examen@examen-VirtualBox:~$ cat /home/examen/prueba6.txt |grep ipv4|cut -d " " -f 2,6
 
 
+#mostrar los números a la izquierda 
+Paso para mostrar los números de línea en Nano:
+presiona la siguiente combinación de teclas:
+Alt + Shift + 3
+Esto activará o desactivará la visualización de los números de línea en el margen izquierdo.
 
+En algunos teclados o configuraciones, puede ser solo Alt + 3.
+
+
+Si quieres que Nano siempre muestre los números de línea por defecto:
+
+Abre o crea el archivo de configuración:
+
+Copiar código
+nano ~/.nanorc
+Agrega esta línea:
+
+Copiar código
+set linenumbers
+Guarda y sal. Ahora cada vez que abras Nano, verás los números de línea automáticamente.
 
 
 
