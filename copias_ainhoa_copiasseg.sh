@@ -1,4 +1,5 @@
 #!/bin/bash
+#actualizado.... 
 #Fecha actual
 fecha=$(date +%Y-%m-%d)
 dir_backup="/backup"
@@ -24,9 +25,10 @@ echo "CARPETA:$linea"
 if [ ! -d "$linea" ]
 then
 echo "[$(date +%Y-%m-%d_%H:%M)] ERROR: La carpeta indicada en el fichero de configuración $linea no existe." >> "$log"
-fi
+else
 carpetas+=("$linea")
 echo "CARPETAS:$carpetas"
+fi
 done < "$fichero_conf"
 if [ -z "$carpetas" ]
 then
