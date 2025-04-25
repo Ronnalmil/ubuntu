@@ -1,0 +1,60 @@
+1	#!/bin/bash
+     2	#actualizado.... 
+     3	#Fecha actual
+     4	fecha=$(date +%Y-%m-%d)
+     5	dir_backup="/backup"
+     6	fichero_conf="/configuracion/carpetasBackup.txt"
+     7	fichero_backup="${dir_backup}/${fecha}_Backup.tar.gz"
+     8	log="${dir_backup}/${fecha}_log.log"
+     9	#Creamos el directorio /backup si no existe
+    10	if [ ! -d "$dir_backup" ]
+    11	then
+    12	sudo mkdir -p "$dir_backup"
+    13	sudo mkdir -p /configuracion 
+    14	sudo chmod 777 /configuracion
+    15	sudo touch $fichero_conf
+    16	sudo chmod 777 $fichero_conf
+    17	echo "/home/milton/Documentos" >>$fichero_conf
+    18	
+    19	echo "[$(date +%Y-%m-%d_%H:%M)] Directorio /backup creado. " >> "$log"
+    20	fi
+    21	#Comprobamos si existe un archivo .tar anterior
+    22	ultima_copia=$(ls -t ${dir_backup}*_Backup.tar.gz 2>/dev/null | head -n1)
+    23	
+    24	#Leemos las carpetas desde el archivo de configuracion
+    25	#Primero comprobamos que existe
+    26	if [ -f "$fichero_conf" ]
+    27	then
+    28	carpetas=()
+    29	while IFS= read -r linea; do
+    30	echo "CARPETA:$linea"
+    31	if [ ! -d "$linea" ]
+    32	then
+    33	echo "[$(date +%Y-%m-%d_%H:%M)] ERROR: La carpeta indicada en el fichero de configuración $linea no existe." >> "$log"
+    34	else
+    35	carpetas+=("$linea")
+    36	echo "CARPETAS:$carpetas"
+    37	fi
+    38	done < "$fichero_conf"
+    39	if [ -z "$carpetas" ]
+    40	then
+    41	echo "[$(date +%Y-%m-%d_%H:%M)] ERROR: Las carpetas indicadas son erroneas.No se realizara ninguna copia de seguridad." >> "$log"
+    42	exit 1
+    43	fi
+    44	else
+    45	echo "[$(date +%Y-%m-%d_%H:%M)] ERROR: El archivo de configuración no existe." >> "$log"
+    46	exit 1
+    47	fi
+    48	
+    49	#Ya tenemos todos los datos preparados yt procedemos a realizar las copias
+    50	
+    51	if [ ! -f "${dir_backup}/reg_cambios.snar" ]
+    52	then
+    53	echo "[$(date +%Y-%m-%d_%H:%M)] No existen copias anteriores comienza la copia completa." >> "$log"
+    54	tar --listed-incremental=/backup/reg_cambios.snar -czf "$fichero_backup" "${carpetas[@]}" >> "$log" 2>&1
+    55	echo "[$(date +%Y-%m-%d_%H:%M)] Copia completa realizada." >> "$log"
+    56	else
+    57	echo "[$(date +%Y-%m-%d_%H:%M)] Existen copias anteriores realizadas. Comienza la copia incremental." >> "$log"
+    58	tar --listed-incremental=/backup/reg_cambios.snar -czf "$fichero_backup" "${carpetas[@]}" >> "$log" 2>&1
+    59	echo "[$(date +%Y-%m-%d_%H:%M)] Copia incremental realizada." >> "$log"
+    60	fi
