@@ -1,3 +1,4 @@
+#da error mirar si tengo que ponerlo en user como destino 
 $OU = "OU=TecnoGlobalSL,DC=cosmos,DC=local"
 $log= "C:\scriptusuarios.txt"
 
