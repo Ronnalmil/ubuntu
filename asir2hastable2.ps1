@@ -6,17 +6,17 @@ $GruposUsuarios = @{
     "soportes" = @("maria.soportes", "pedro.soportes")
 }
 
-"Creacion de usuarios y grupos " | Set-Content $log
+" Creamos usuarios, grupos y OU " | Set-Content $log
 
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'TecnoGlobalSL'" -ErrorAction SilentlyContinue)) {
     New-ADOrganizationalUnit -Name "TecnoGlobalSL" -Path "DC=cosmos,DC=local"
-    "OU TecnoGlobalSL creada" | Add-Content $log
+    "La (OU)Unidad organizativa  TecnoGlobalSL esta creada" | Add-Content $log
 }
 
 foreach ($grupo in $GruposUsuarios.Keys) {
     if (-not (Get-ADGroup -Filter "Name -eq '$grupo'" -SearchBase $OU -ErrorAction SilentlyContinue)) {
         New-ADGroup -Name $grupo -GroupScope Global -GroupCategory Security -Path $OU
-        " esta creado el nuevo : $grupo  " | Add-Content $log
+        " esta creado un nuevo grupo: $grupo  " | Add-Content $log
     }
 
     foreach ($user in $GruposUsuarios[$grupo]) {
