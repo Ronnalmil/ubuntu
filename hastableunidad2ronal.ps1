@@ -27,14 +27,44 @@ $hashtable = @{
             "clavegrupo"   = @()
             "claveusuario" = @()
 }
+
+foreach ($i in $hashtable.keys){
+      for ($i, $i -le )
+            C$i = $Hashtable[$i]
+
+  
+
+
+}
+
 $claves in $hashtable.keys  #nou
 for ($i in 1..$nou){
 $clave1 = $hashtable[claveOU][$i]
 $Tnombre = "nombre para el usuario de la posicion"
 $clave1=$Tnombre
+"Unidades Organizativas: $claves1 :   -join ';' " | Add-Content $log
+
 }# for
-$hashtable[clavegrupo][$j]
-"diga nombre del grupo"
+#for para recorre clave grupo
+for ($j in 1..$ngrupos){
+$clave2=$hashtable[clavegrupo][$j]
+$Tgrupo="diga nombre del grupo"
+$clave2=$Tgrupo
+"Grupos: $claves2 :   -join ';' " | Add-Content $log
+}#for
+#for para recorrer clave usuario
+for ($k in 1..$nusuarios){
+$clave3=$hashtable[claveusuario][$k]
+$Tusuario="diga un nombre para el nuevo usuario"
+$clave3=$Tusuario
+"Usuarios: $claves3 :   -join ';' " | Add-Content $log
+}
+#tendremos listo el hashtable con los datos llenos
+
+#imprimir los resultados
+
+
+
 
 
 foreach()
@@ -221,6 +251,3 @@ En línea: 83 Carácter: 21
    tion
     + FullyQualifiedErrorId : SetADGroupMember.ValidateMembersParameter,Microsoft.ActiveDirectory.Management.Comma 
    nds.AddADGroupMember
-
-
-
