@@ -33,7 +33,6 @@ registrar_log "Consulta del estado inicial de la cuenta"
 #otro metod..
 
 opcion=-1
-## podrías dejar vacio
 while [ "$opcion" -ne 0 ]; do
     echo -e "\n1) Establecer contraseña\n2) Forzar cambio próximo inicio\n3) Fecha caducidad\n4) Políticas contraseña\n5) Bloquear\n6) Desbloquear\n0) Finalizar"
     read -p "Opción: " opcion
