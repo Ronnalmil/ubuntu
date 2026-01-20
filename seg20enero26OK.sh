@@ -5,31 +5,35 @@ LOG_FILE="/var/log/seguridad_usuarios.log"
 USUARIO=$1
 
 if [ $# -ne 1 ]; then
-    echo "Error: Se requiere exactamente un parámetro."
+    echo "Debe ingresar el nombre de un usuario como parámetro"
     exit 1
 fi
 
 if [ "$EUID" -ne 0 ]; then
-    echo "Error: Debe ejecutarse como root."
+    echo "Debes ser usuarios root para ejecutar este script"
     exit 1
 fi
 
 registrar_log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $USUARIO - $1" >> "$LOG_FILE"
 }
+#ver otro método.. 
 
 if id "$USUARIO" &>/dev/null; then
-    echo "El usuario ya existe."
+    echo "El usuario ya existe"
 else
     useradd "$USUARIO"
     registrar_log "Creación de usuario"
+    #otro método.
 fi
 
 echo "--- ESTADO INICIAL ---"
 chage -l "$USUARIO"
 registrar_log "Consulta del estado inicial de la cuenta"
+#otro metod..
 
 opcion=-1
+## podrías dejar vacio
 while [ "$opcion" -ne 0 ]; do
     echo -e "\n1) Establecer contraseña\n2) Forzar cambio próximo inicio\n3) Fecha caducidad\n4) Políticas contraseña\n5) Bloquear\n6) Desbloquear\n0) Finalizar"
     read -p "Opción: " opcion
