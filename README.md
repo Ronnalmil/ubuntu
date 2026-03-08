@@ -76,6 +76,7 @@ Copiar código
 set linenumbers
 Guarda y sal. Ahora cada vez que abras Nano, verás los números de línea automáticamente.
 
-
+# 2026/03/08
+el fichero que Funciona 100% COPIAS DE SEGURIDAD, TAR , PARA ORDINARIA, los demas estan duplicados.
 
 
