@@ -78,5 +78,6 @@ Guarda y sal. Ahora cada vez que abras Nano, verás los números de línea autom
 
 # 2026/03/08
 el fichero que Funciona 100% COPIAS DE SEGURIDAD, TAR , PARA ORDINARIA, los demas estan duplicados.
+ainhoapruebas.sh   oK
 
 
