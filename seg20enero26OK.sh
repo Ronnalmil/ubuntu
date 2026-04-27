@@ -10,7 +10,7 @@ if [ $# -ne 1 ]; then
 fi
 
 if [ "$EUID" -ne 0 ]; then
-    echo "Debes ser usuarios root para ejecutar este script"
+    echo "Debes ser root para ejecutar este script"
     exit 1
 fi
 
